@@ -28,6 +28,7 @@
 #include <string.h>
 #include <ctype.h> 
 #include <list>
+#include <stdint.h>
 
 #define UNXIP_MAJOR_VER	0
 #define UNXIP_MINOR_VER	1
@@ -35,24 +36,24 @@
 typedef struct _tagXIPHDR
 {
 	char cbMagic[4];
-	unsigned long nDataOffset;
-	unsigned short nFiles;
-	unsigned short nNames;
-	unsigned long nDataSize;
+	uint32_t nDataOffset;
+	uint16_t nFiles;
+	uint16_t nNames;
+	uint32_t nDataSize;
 } XIPHDR, *LPXIPHDR;
 
 typedef struct _tagFILEDATA
 {
-	unsigned long nOffset;
-	unsigned long nSize;
-	unsigned long nType;
-	unsigned long nTimestamp;
+	uint32_t nOffset;
+	uint32_t nSize;
+	uint32_t nType;
+	uint32_t nTimestamp;
 } FILEDATA, *LPFILEDATA;
 
 typedef struct _tagFILENAME
 {
-	unsigned short nDataIndex;
-	unsigned short nNameOffset;
+	uint16_t nDataIndex;
+	uint16_t nNameOffset;
 } FILENAME, *LPFILENAME;
 
 typedef struct _tagENTRY
