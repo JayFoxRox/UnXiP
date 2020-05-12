@@ -12,10 +12,20 @@
  *
  ************************************************************/
 
+#ifndef _WIN32
+#define _MAX_PATH 256
+#define mkdir(a) 0
+#include <strings.h>
+#define stricmp(a,b) strcasecmp(a,b)
+#else
+#include <direct.h>
+#endif
+
+#include <errno.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <direct.h>
 #include <ctype.h> 
 #include <list>
 
@@ -259,7 +269,7 @@ int ExtractArchive(const char* pszExtractFolder, const char* pszArchiveFile)
 		printf("Extracting file '%s' ... ", pszFilename);
 
 		char szFilename[_MAX_PATH + 1];
-		sprintf(szFilename, "%s\\%s", szFolder, pszFilename);
+		sprintf(szFilename, "%s/%s", szFolder, pszFilename);
 		FILE* fpOut = fopen(szFilename, "wb");
 		if(fpOut == NULL)
 		{
@@ -357,7 +367,7 @@ int main(int argc, char* argv[])
 	if(argc < 2)
 		Usage(NULL);
 
-	if(argv[argc - 1][0] != '-' && argv[argc - 1][0] != '/')
+	if(argv[argc - 1][0] != '-')
 		pszArchiveFile = argv[argc - 1];
 
 	if(GetCmdLineArg("extract", argc, argv) != 0)
