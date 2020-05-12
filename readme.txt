@@ -1,4 +1,4 @@
-UnXiP 0.1 - by MaTiAz
+UnXiP - by MaTiAz (modified by JayFoxRox)
 
 Based on PIXIT 0.5 sources by Voltaic.
 
@@ -21,6 +21,19 @@ About the sources
 I decided to give the sources out because Voltaic did it with PIXIT(and this
 app is based on it!). Yes, it would be stupid to make a closed-source application
 from a open-source one.
+
+Compilation
+===========
+
+To compile and run:
+
+```
+mkdir build
+cd build
+cmake ..
+make
+./unxip
+```
 
 Thanks to:
 ==========
