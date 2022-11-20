@@ -10,6 +10,9 @@
  * little dizzy for you, but its because im a C++ newbie(this
  * is my first Xbox related application on C++).
  *
+ * November 20, 2022 - Added extraction of meshes/models.
+ * Removed extraction of .ib and .vb files.
+ *
  ************************************************************/
 
 #ifndef _WIN32
@@ -31,7 +34,7 @@
 #include <stdint.h>
 
 #define UNXIP_MAJOR_VER	0
-#define UNXIP_MINOR_VER	1
+#define UNXIP_MINOR_VER	2
 
 typedef struct _tagXIPHDR
 {
@@ -261,7 +264,16 @@ int ExtractArchive(const char* pszExtractFolder, const char* pszArchiveFile)
 
 		const char* pszFilename = GetFilenameAt(pszFilenameBlock, n);
 
-		if(pData->nType == 4)
+		// nType == 5 .ib
+		// nType == 6 .vb
+		// These two filetypes are unescesarry.
+		// Removed nType == 4, as we want the XIP files to be extracted in full. Thus, we want XM (model/mesh) files.
+		if(pData->nType == 5)
+		{
+			printf("Skipping file '%s' ...\n", pszFilename);
+			continue;
+		}
+		if (pData->nType == 6)
 		{
 			printf("Skipping file '%s' ...\n", pszFilename);
 			continue;
