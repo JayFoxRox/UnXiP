@@ -4,13 +4,13 @@ Since people have started using dash modifications again, and having issues with
 
 To use it; open a command prompt.
 
-```
+
 unxip.exe -extract [where-to-extract] [nameof.xip]
-```
+
 For example:
-```
+
 unxip.exe -extract [default] [default.xip]
-```
+
 Will extract the contents of default.xip to the default folder.
 
 I'll clean this up later and make it easier to use/more organized but for now its quite simple and straight forward as is.
