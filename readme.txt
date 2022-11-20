@@ -1,3 +1,26 @@
+Readme:
+
+Since people have started using dash modifications again, and having issues with XIP files I decided to make some slight changes to this wonderful tool.
+
+To use it; open a command prompt.
+
+```
+unxip.exe -extract [where-to-extract] [nameof.xip]
+```
+For example:
+```
+unxip.exe -extract [default] [default.xip]
+```
+Will extract the contents of default.xip to the default folder.
+
+I'll clean this up later and make it easier to use/more organized but for now its quite simple and straight forward as is.
+
+Special thanks to MaTiAz for his original sources, Voltaic for PIXIT which this is based on, and JayFoxRox from whom I forked this, as he added CMAKE in his original modification.
+
+
+
+Original Readme:
+
 UnXiP - by MaTiAz (modified by JayFoxRox)
 
 Based on PIXIT 0.5 sources by Voltaic.
